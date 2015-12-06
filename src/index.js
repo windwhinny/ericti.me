@@ -18,7 +18,7 @@ app.use((ctx, next)=>{
 
 function createServer(){
   if (config.development) {
-      return http.createServer({}, app.callback());
+      return http.createServer(app.callback());
   } else {
       return http2.createServer({}, app.callback());
   }
