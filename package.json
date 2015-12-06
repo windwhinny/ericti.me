@@ -1,0 +1,28 @@
+{
+  "name": "ericti.me",
+  "version": "1.0.0",
+  "description": "just a website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windwhinny/ericti.me.git"
+  },
+  "author": "Eric Time <windwhinny@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/windwhinny/ericti.me/issues"
+  },
+  "homepage": "https://github.com/windwhinny/ericti.me#readme",
+  "dependencies": {
+    "bash-color": "0.0.3",
+    "fecha": "^1.1.0",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.4",
+    "http2": "^3.2.0",
+    "koa": "^2.0.0-alpha.3",
+    "lodash": "^3.10.1"
+  }
+}
