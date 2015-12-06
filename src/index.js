@@ -14,17 +14,24 @@ app.use((ctx, next)=>{
     const ms = new Date - start;
     logger.req(ctx, ms);
   });
-})
+});
 
-function createServer(){
-  if (config.development) {
-      return http.createServer(app.callback());
-  } else {
-      return http2.createServer({}, app.callback());
-  }
+if (config.development) {
+    http.createServer(app.callback()).listen(config.port);
+} else {
+    http.createServer((req, res) => {
+      res.writeHead(301, {
+        Location: `https://${req.getHeader('host')}${req.url}`
+      });
+
+      res.end();
+    }).listen(config.port);
+
+    http2.createServer({
+      pfx: config.tls.pfx,
+      passphrase: config.tls.passphrase
+    }, app.callback()).listen(config.tlsPort);
 }
 
-createServer()
-  .listen(config.port);
 
 logger.info(`server start at ${config.port}`);
